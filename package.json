@@ -1,0 +1,14 @@
+{
+  "name": "streaming client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@project-sunbird/open-speech-streaming-client": "^1.0.5",
+    "wave": "^0.2.3",
+    "wavefile": "^11.0.0"
+  },
+  "scripts": {
+    "test": "node src/streaming/application.js",
+    "test2": "node src/streaming/testFile.js"
+  }
+}
