@@ -1,1 +1,1 @@
-node /Users/pankaj/IdeaProjects/performaceTestSuite/src/streaming/application.js
+node /Users/pankaj/gitAll/performance-test-suite/src/streaming/application.js

@@ -55,7 +55,11 @@ const connectSocket = (socketURL, transcription_language, onSuccess = () => {}, 
     socket.on('abort', function () {
         console.log("ABORTED due to user limit")
     });
+
+
+
     return socket;
+
 }
 
 module.exports = {connectSocket, disconnect};

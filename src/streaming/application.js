@@ -14,7 +14,7 @@ var endTime
 const startStreaming = (socket) => {
     const WaveFile = require('wavefile').WaveFile;
     var fs = require('fs');
-    let wav = new WaveFile(fs.readFileSync("/Users/pankaj/IdeaProjects/performaceTestSuite/cutafew_converted.wav"));
+    let wav = new WaveFile(fs.readFileSync("/Users/pankaj/gitAll/performance-test-suite/cutafew_converted.wav"));
 
     wav.toSampleRate(16000);
     let wavBuffer = wav.toBuffer();
@@ -89,12 +89,12 @@ const ended = (id) => {
     var time = endTime - startTime;
     console.log('Execution time: ' + time);
     result = id + "," + time + "," + pass + "," + fail + "," + startTime + "," + endTime + "\n"
-    fs.appendFileSync("/Users/pankaj/performaceResult/result.csv",result)
+    fs.appendFileSync("/Users/pankaj/performaceResult/result_default.csv",result)
 }
 
 const simulateUsers = (numberOfUsers) => {
     var fs = require('fs');
-    var jsonFile = fs.readFileSync("/Users/pankaj/IdeaProjects/performaceTestSuite/audio_transcript.json")
+    var jsonFile = fs.readFileSync("/Users/pankaj/gitAll/performance-test-suite/audio_transcript.json")
     transcriptJson = JSON.parse(jsonFile)
 
 
@@ -106,4 +106,4 @@ const simulateUsers = (numberOfUsers) => {
         //startStreaming(socket);
     }
 }
-simulateUsers(10)
+simulateUsers(20)
