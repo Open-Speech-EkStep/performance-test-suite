@@ -25,42 +25,17 @@ class LoadTestSimulations extends Simulation{
         .check(status is 200)
         .asJson
     )
-    .pause(2)
-    .exec(
-      http("request_en_1")
-        .post("/en")
-        .body(StringBody("""{"config": {"transcriptionFormat": {"value":"transcript"},"audioFormat": "wav","punctuation" : false,"enableInverseTextNormalization" : false},"audio": [{"audioUri": "https://www2.engr.arizona.edu/~429rns/audiofiles/cutafew.wav"}]}""".stripMargin))
-        .check(status is 200)
-        .asJson
-    )
-    .pause(2)
-    .exec(
-      http("request_en_2")
-        .post("/en")
-        .body(StringBody("""{"config": {"transcriptionFormat": {"value":"transcript"},"audioFormat": "wav","punctuation" : false,"enableInverseTextNormalization" : false},"audio": [{"audioUri": "https://www2.engr.arizona.edu/~429rns/audiofiles/cutafew.wav"}]}""".stripMargin))
-        .check(status is 200)
-        .asJson
-    )
-    .pause(2)
-    .exec(
-      http("request_en_3")
-        .post("/en")
-        .body(StringBody("""{"config": {"transcriptionFormat": {"value":"transcript"},"audioFormat": "wav","punctuation" : false,"enableInverseTextNormalization" : false},"audio": [{"audioUri": "https://www2.engr.arizona.edu/~429rns/audiofiles/cutafew.wav"}]}""".stripMargin))
-        .check(status is 200)
-        .asJson
-    )
 
   setUp(
     scn.inject(
       nothingFor(4), // 1
-      atOnceUsers(100), // 2
-      rampUsers(100).during(5), // 3
-      constantUsersPerSec(200).during(15), // 4
-      rampUsersPerSec(10).to(20).during(10), // 6
-      rampUsersPerSec(10).to(20).during(10)
+      atOnceUsers(0), // 2
+      //      rampUsers(10).during(5 seconds), // 3
+      constantUsersPerSec(20).during(100) // 4
+      //      rampUsersPerSec(10).to(20).during(10)
     ).protocols(httpProtocol)
   );
-//  setUp(scn.inject(nothingFor(1),atOnceUsers(1), rampUsers(1) during(1 seconds)).protocols(httpProtocol))
-//  setUp(scn.inject(nothingFor(2),atOnceUsers(1), rampUsers(10) during(30 seconds)).protocols(httpProtocol))
-//  setUp(scn.inject(nothingFor(2),atOnceUsers(5), rampUsers(150) during(300 seconds)).protocols(httpProtocol))
+  //  setUp(scn.inject(nothingFor(1),atOnceUsers(0), rampUsers(500) during(100 seconds)).protocols(httpProtocol))
+  //  setUp(scn.inject(nothingFor(2),atOnceUsers(1), rampUsers(10) during(30 seconds)).protocols(httpProtocol))
+  //  setUp(scn.inject(nothingFor(2),atOnceUsers(5), rampUsers(150) during(300 seconds)).protocols(httpProtocol))
 }
