@@ -8,7 +8,7 @@
     "wavefile": "^11.0.0"
   },
   "scripts": {
-    "test": "node src/streaming/application.js",
-    "test2": "node src/streaming/testFile.js"
+    "test": "node streaming/application.js",
+    "test2": "node streaming/testFile.js"
   }
 }

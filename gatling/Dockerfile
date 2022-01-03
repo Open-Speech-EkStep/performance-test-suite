@@ -2,6 +2,12 @@ FROM openjdk:8-jdk-alpine
 
 MAINTAINER Pankaj <pankaj.sikar@gmail.com>
 
+#install node
+RUN apt-get install -y curl \
+  && curl -sL https://deb.nodesource.com/setup_9.x | bash - \
+  && apt-get install -y nodejs \
+  && curl -L https://www.npmjs.com/install.sh | sh
+
 # working directory for gatling
 WORKDIR /opt
 
@@ -10,6 +16,8 @@ ENV GATLING_VERSION 3.2.1
 
 # create directory for gatling install
 RUN mkdir -p gatling
+
+
 
 # install gatling
 RUN apk add --update wget bash libc6-compat && \

@@ -1,0 +1,1 @@
+node ./performance-test-suite/streaming/application.js

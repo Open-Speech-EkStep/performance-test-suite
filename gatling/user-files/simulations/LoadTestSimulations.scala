@@ -31,7 +31,7 @@ class LoadTestSimulations extends Simulation{
       nothingFor(4), // 1
       atOnceUsers(0), // 2
       //      rampUsers(10).during(5 seconds), // 3
-      constantUsersPerSec(100).during(50) // 4
+      constantUsersPerSec(1).during(2) // 4
       //      rampUsersPerSec(10).to(20).during(10)
     ).protocols(httpProtocol)
   );
