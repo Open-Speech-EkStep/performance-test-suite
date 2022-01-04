@@ -1,1 +1,1 @@
-node ./performance-test-suite/streaming/application.js
+node ./streaming/application.js

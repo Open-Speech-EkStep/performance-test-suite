@@ -5,10 +5,10 @@ var lang = 'en'
 var transcriptJson
 
 class UserProcessor {
-    emitNumber = new Map();
-    failCounter = 0;
-    passCounter = 0;
-    startTime = 1212;
+    emitNumber;
+    failCounter;
+    passCounter;
+    startTime;
     endTime;
     startTimeBeforeEmit;
     endTimeAfterResponse;
@@ -19,6 +19,9 @@ class UserProcessor {
 
     constructor(socket_client) {
         this.socket_client = socket_client;
+        this.emitNumber = new Map();
+        this.failCounter = 0;
+        this.passCounter = 0;
     }
 
     onConnectSuccess = (action, id) => {

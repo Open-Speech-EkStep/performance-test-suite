@@ -11,9 +11,6 @@ class StreamingClient extends Simulation{
   // scenario
   val scn = scenario("Load Test")
   .exec(session => {
-    val scriptOutput5 = "ls ".!!
-    println(s"""MyLoad Script invoked: ${scriptOutput5} """)
-
     val scriptOutput = "sh /opt/gatling/performance-test-suite/streaming/executer.sh".!!
     println(s"""MyLoad Script invoked: ${scriptOutput} """)
 //
