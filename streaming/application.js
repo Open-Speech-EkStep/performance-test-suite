@@ -40,14 +40,14 @@ class UserProcessor {
     }
     beforeEmit = () => {
         this.startTimeBeforeEmit = new Date().getTime();
+    }
+    onResponse = (data) => {
+        this.endTimeAfterResponse = new Date().getTime();
         if (this.emitNumber.has(this.socket_id) == false) {
             this.emitNumber.set(this.socket_id, 1)
         } else {
             this.emitNumber.set(this.socket_id, this.emitNumber.get(this.socket_id) + 1)
         }
-    }
-    onResponse = (data) => {
-        this.endTimeAfterResponse = new Date().getTime();
         let _latency = this.endTimeAfterResponse - this.startTimeBeforeEmit;
         console.log("startTimeBeforeEmit:" + this.startTimeBeforeEmit + " endTimeAfterResponse:" + this.endTimeAfterResponse + " _latency:" + _latency)
         if (this.latency.has(this.socket_id) == false) {
