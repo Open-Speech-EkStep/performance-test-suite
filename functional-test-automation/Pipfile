@@ -1,0 +1,32 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+behave = "*"
+requests = "*"
+selenium = "*"
+config="*"
+pymongo="*"
+allure-behave="*"
+beautifulsoup4="*"
+cython="*"
+configparser="*"
+configobj="*"
+simplejson="*"
+pyodbc="*"
+deepdiff="*"
+pandas="*"
+ipdb="*"
+async_generator="*"
+boto3="*"
+hvac="*"
+tqdm="*"
+colorama="*"
+coloredlogs="*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9.7"

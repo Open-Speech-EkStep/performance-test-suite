@@ -1,0 +1,14 @@
+{
+  "config": {
+    "language": {
+      "value": 1
+    },
+    "transcriptionFormat": "TRANSCRIPT",
+    "audioFormat": "WAV",
+    "enableAutomaticPunctuation" : true,
+    "enableInverseTextNormalization": true
+  },
+  "audio": {
+    "audioUri": 2
+  }
+}

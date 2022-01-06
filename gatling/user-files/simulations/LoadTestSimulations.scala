@@ -31,11 +31,8 @@ class LoadTestSimulations extends Simulation{
       nothingFor(4), // 1
       atOnceUsers(0), // 2
       //      rampUsers(10).during(5 seconds), // 3
-      constantUsersPerSec(1).during(2) // 4
+      constantUsersPerSec(5).during(5) // 4
       //      rampUsersPerSec(10).to(20).during(10)
     ).protocols(httpProtocol)
   );
-  //  setUp(scn.inject(nothingFor(1),atOnceUsers(0), rampUsers(500) during(100 seconds)).protocols(httpProtocol))
-  //  setUp(scn.inject(nothingFor(2),atOnceUsers(1), rampUsers(10) during(30 seconds)).protocols(httpProtocol))
-  //  setUp(scn.inject(nothingFor(2),atOnceUsers(5), rampUsers(150) during(300 seconds)).protocols(httpProtocol))
 }
