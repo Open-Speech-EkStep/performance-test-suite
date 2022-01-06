@@ -1,14 +1,14 @@
 {
   "config": {
     "language": {
-      "value": 1
+      "value": "en"
     },
-    "transcriptionFormat": "TRANSCRIPT",
-    "audioFormat": "WAV",
-    "enableAutomaticPunctuation" : true,
-    "enableInverseTextNormalization": true
+    "transcriptionFormat": {"value":"transcript"},
+    "audioFormat": "wav",
+    "punctuation" : false,
+    "enableInverseTextNormalization" : false
   },
-  "audio": {
-    "audioUri": 2
-  }
+  "audio": [{
+    "audioUri": "https://storage.googleapis.com/test_public_bucket/download.wav"
+  }]
 }

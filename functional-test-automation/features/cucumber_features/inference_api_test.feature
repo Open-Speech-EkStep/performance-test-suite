@@ -7,6 +7,6 @@ Feature: API speech to text conversion test
     Then verify "<output_result>"
     Examples:
       | audio_uri                                                          | output_text_lang    | output_result             |
-      | https://www2.engr.arizona.edu/~429rns/audiofiles/cutafew.wav       | hi                  | /test_data/hindi/cutafew.txt   |
-      | https://www2.engr.arizona.edu/~429rns/audiofiles/cutafew.wav       | en                  | /test_data/english/cutafew.txt                |
-      | https://www2.engr.arizona.edu/~429rns/audiofiles/cutafew.wav       | gu                  | /test_data/gujarati/cutafew.txt                |
+#      | https://www2.engr.arizona.edu/~429rns/audiofiles/cutafew.wav       | hi                  | /test_data/hindi/cutafew.txt   |
+      | https://storage.googleapis.com/test_public_bucket/download.wav      | en                  | /test_data/english/cutafew.txt                |
+#      | https://www2.engr.arizona.edu/~429rns/audiofiles/cutafew.wav       | gu                  | /test_data/gujarati/cutafew.txt                |

@@ -16,12 +16,12 @@ def initialization(context):
 def step_impl(context, audio_uri, output_text_lang):
     payload = fileUtils.read_json_file("features/test_data/payloads/inference_api_payload.json")
     payload["config"]["language"]["value"] = output_text_lang
-    payload["audio"]["audioUri"] = audio_uri
+    payload["audio"][0]["audioUri"] = audio_uri
     print(payload)
-    response = inferenceAPIClient.convert_audio(payload)
+    response = inferenceAPIClient.convert_audio(payload, output_text_lang)
     print("\tINFO: hiting api ", response)
-    print(response["transcript"])
-    context.actualText = response["transcript"].strip()
+    print(response["output"])
+    context.actualText = response["output"][0]["source"].strip()
 
 
 

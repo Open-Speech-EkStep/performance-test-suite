@@ -16,7 +16,8 @@ class InferenceAPIClient(Singleton):
     def set_base_url(self, url):
         self.base_url = url
 
-    def convert_audio(self, payload):
+    def convert_audio(self, payload, lang):
         headers = {'content-type': 'application/json', 'charset': 'utf-8'}
-        return requests.post(self.base_url, data=json.dumps(payload), headers=headers).json()
+        print(self.base_url)
+        return requests.post(self.base_url + "/" + lang, data=json.dumps(payload), headers=headers).json()
 
