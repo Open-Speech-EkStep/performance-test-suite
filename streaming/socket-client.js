@@ -73,9 +73,9 @@ class Socket_Client {
         let wavBuffer = wav.toBuffer();
         console.log(wavBuffer.length)
 
-        var i,j, wavBuff, chunk = 30000, k=1;
+        var i,j, wavBuff, chunk = 60000, k=1;
         const _this = this;
-        for (i = 0,j = wavBuffer.length; i < j; i += chunk) {
+        for (i = 0,j = wavBuffer.length; i + chunk < j; i += chunk) {
             console.log("value of i:", i, k)
             setTimeout(function(i){
                 var temp = wavBuffer.slice(i, i + chunk);
@@ -83,12 +83,12 @@ class Socket_Client {
                 beforeEmitCallback()
                 _this.socket.emit('mic_data', temp, _this.transcription_language, true, false);
                 _this.socket.emit('mic_data', null, _this.transcription_language, false, false);
-            }, 1000 * k,i);
+            }, 1800 * k,i);
             k++;
         }
         setTimeout(function () {
             if(i != 0 && i != chunk) {
-                i = i - chunk
+                //i = i - chunk
                 wavBuff = wavBuffer.slice(i, wavBuffer.length);
                 console.log("value remains:", i, wavBuffer.length)
                 _this.socket.emit('mic_data', wavBuff, _this.transcription_language, true, false);
@@ -97,7 +97,7 @@ class Socket_Client {
             _this.socket.emit('mic_data', null, _this.transcription_language, false, false);
             _this.socket.emit('mic_data', null, _this.transcription_language, false, true);
 
-        },1000 * k);
+        },1800 * k);
     };
 }
 

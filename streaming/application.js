@@ -49,7 +49,7 @@ class UserProcessor {
             this.emitNumber.set(this.socket_id, this.emitNumber.get(this.socket_id) + 1)
         }
         let _latency = this.endTimeAfterResponse - this.startTimeBeforeEmit;
-        console.log("startTimeBeforeEmit:" + this.startTimeBeforeEmit + " endTimeAfterResponse:" + this.endTimeAfterResponse + " _latency:" + _latency)
+        // console.log("startTimeBeforeEmit:" + this.startTimeBeforeEmit + " endTimeAfterResponse:" + this.endTimeAfterResponse + " _latency:" + _latency)
         if (this.latency.has(this.socket_id) == false) {
             this.latency.set(this.socket_id, _latency)
         } else {
@@ -69,7 +69,7 @@ class UserProcessor {
         console.log('Execution time: ' + time_diff);
         let result = this.socket_id + "," + time_diff + "," + this.passCounter + "," + this.failCounter + "," + this.startTime + "," + this.endTime + "," + [...this.latency.entries()] + "\n"
         console.log(result)
-        fs.appendFileSync("./performaceResult/result.csv", result)
+        // fs.appendFileSync("./performaceResult/result_default.csv", result)
     }
 }
 const simulateUsers = (numberOfUsers) => {
