@@ -12,7 +12,8 @@ class Socket_Client {
             autoConnect: false,
             withCredentials: false,
             reconnectionAttempts: 5,
-            query: `language=${this.transcription_language}`
+            query: `language=${this.transcription_language}`,
+            transports: [ "websocket" ]
         });
         // this.socket.connect();
     }
