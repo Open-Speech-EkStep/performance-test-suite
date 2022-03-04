@@ -1,8 +1,11 @@
 const SocketStatus = require('./socket-status');
 let {Socket_Client} = require('./socket-client');
 const fs = require("fs");
-var lang = 'en'
-var transcriptJson
+var lang = process.env.lang;
+const con = require('../config.js')
+
+
+//var transcriptJson
 
 class UserProcessor {
     emitNumber;
@@ -57,31 +60,31 @@ class UserProcessor {
         }
         let respo_index = "respo_" + this.emitNumber.get(this.socket_id)
         console.log("Response for user:", this.socket_id, " ", respo_index, " ", data);
-        if (transcriptJson[0][respo_index] == data) {
-            this.passCounter = this.passCounter + 1
-        } else {
-            this.failCounter = this.failCounter + 1
-        }
+        // if (transcriptJson[0][respo_index] == data) {
+        //     this.passCounter = this.passCounter + 1
+        // } else {
+        //     this.failCounter = this.failCounter + 1
+        // }
     }
     ended = () => {
-        this.endTime = new Date().getTime();
-        let time_diff = this.endTime - this.startTime;
+         this.endTime = new Date().getTime();
+         let time_diff = this.endTime - this.startTime;
         console.log('Execution time: ' + time_diff);
-        let result = this.socket_id + "," + time_diff + "," + this.passCounter + "," + this.failCounter + "," + this.startTime + "," + this.endTime + "," + [...this.latency.entries()] + "\n"
-        console.log(result)
+        // let result = this.socket_id + "," + time_diff + "," + this.passCounter + "," + this.failCounter + "," + this.startTime + "," + this.endTime + "," + [...this.latency.entries()] + "\n"
+        // console.log(result)
         // fs.appendFileSync("./performaceResult/result_default.csv", result)
     }
 }
 const simulateUsers = (numberOfUsers) => {
-    var fs = require('fs');
-    var jsonFile = fs.readFileSync("./audio_transcript.json")
-    transcriptJson = JSON.parse(jsonFile)
+    // var fs = require('fs');
+    // var jsonFile = fs.readFileSync(con.configr.transcript_json_path)
+    // transcriptJson = JSON.parse(jsonFile)
 
     let socket_client;
     let user;
     for (i = 0; i < numberOfUsers; i++) {
         console.log("language ", lang)
-        socket_client = new Socket_Client('https://meity-dev-asr.ulcacontrib.org', lang)
+        socket_client = new Socket_Client(con.configr.url, lang)
         user = new UserProcessor(socket_client)
         socket_client.connectSocket(user.onConnectSuccess, user.onResponse, user.ended)
         //startStreaming(socket);

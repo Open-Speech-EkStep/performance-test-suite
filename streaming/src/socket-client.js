@@ -1,6 +1,7 @@
 const {io} = require('socket.io-client');
 const SocketStatus = require('./socket-status');
 const {WaveFile} = require("wavefile");
+const con = require('../config.js');
 const fs = require("fs");
 
 class Socket_Client {
@@ -68,13 +69,13 @@ class Socket_Client {
     }
     startStreaming = (beforeEmitCallback = () => {}) => {
         const WaveFile = require('wavefile').WaveFile;
-        let wav = new WaveFile(fs.readFileSync("./cutafew_converted.wav"));
+        let wav = new WaveFile(fs.readFileSync(con.configr.audio_path));
 
         wav.toSampleRate(16000);
         let wavBuffer = wav.toBuffer();
         console.log(wavBuffer.length)
 
-        var i,j, wavBuff, chunk = 60000, k=1;
+        var i,j, wavBuff, chunk = con.configr.chunksize, k=1;
         const _this = this;
         for (i = 0,j = wavBuffer.length; i + chunk < j; i += chunk) {
             console.log("value of i:", i, k)
@@ -84,7 +85,7 @@ class Socket_Client {
                 beforeEmitCallback()
                 _this.socket.emit('mic_data', temp, _this.transcription_language, true, false);
                 _this.socket.emit('mic_data', null, _this.transcription_language, false, false);
-            }, 1800 * k,i);
+            }, con.configr.timeout * k,i);
             k++;
         }
         setTimeout(function () {
