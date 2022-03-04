@@ -6,7 +6,7 @@ Repository for performance testing includes Jmeter `.jmx ` files for all types o
 <br>
 
 ### Pre Requisites :
- - Install node on your machine <br>
+ - Install node on your MAC OS machine <br>
     run this command : `brew install node@16` <br>
     verify using this command ; `node --version` <br>
 
@@ -19,7 +19,7 @@ Repository for performance testing includes Jmeter `.jmx ` files for all types o
 - to try the sample run :  <br> <br>
 
 
-`lang=en node application.js /Users/amulya.ahuja/Downloads/performance_CDAC/performance-test-suite/streaming/audiosample.wav  `  <br>
+`lang=en node application.js <absolute path to audio .wav file>  `  <br>
   lang param is used to define the language in which you want to run the test suite. <br>
 
 In logs you should see `5 chunks` (as per the current audio file and config) and response of 5 chunks. Verify the `Execution time ` should be around the length of audio <br>
@@ -29,7 +29,7 @@ In logs you should see `5 chunks` (as per the current audio file and config) and
     - Logical explanation is explained in the config file.
 
 
-### How to run Streaming with Jmeter .
+### How to run Performanc test suit of Streaming Client with Jmeter .
  ### Pre Requisites :
  - Install `java - 8+` on your machine <br>
  - Refer doc `https://www.java.com/en/download/help/mac_install.html`
@@ -50,7 +50,7 @@ In logs you should see `5 chunks` (as per the current audio file and config) and
 - `Open Jmeter` on your machine
 - For ASR Batch API - use `ASR.jmx` <br>
 - For TTS API - use `TTS.jmx` <br>
-- You can configure the URLs , Total Test time, ramp up time in Jmeter on `Thread Group` of all language. <br>
-- You can enable and disbale the languages by `right click --> Enable/disable` <br>
+- You can configure the URLs , Total Test time, ramp up time in Jmeter on `Thread Group` of all languages. <br>
+- You can enable and disable the languages by `right click --> Enable/disable` <br>
 - Once you are ready you can click on the run button to execute the test. <br>
 - You can see the report in the aggregate Report after the test. <br>
